@@ -11,6 +11,7 @@ function upDate(previewPic) {
     const elem = document.getElementById('image');
     elem.innerHTML = previewPic.alt;
     elem.style.backgroundImage = `url(${previewPic.src})`;
+    console.log("Image with alt: " + previewPic.alt + " focused")
 }
 
 function unDo() {
@@ -25,4 +26,13 @@ function unDo() {
     const elem = document.getElementById('image');
     elem.innerHTML = "Hover over an image below to display here."
     elem.style.backgroundImage = ``;
+    console.log("Image blurred")
+}
+
+function addTabindex(){
+    let elems = document.querySelectorAll("img.preview")
+    for (let i = 0; i < elems.length; i++) {
+        const element = elems[i];
+        element.setAttribute("tabindex", 0);
+    }
 }
